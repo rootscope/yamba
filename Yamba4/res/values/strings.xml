@@ -2,21 +2,19 @@
 <resources>
 
     <string name="app_name">Yamba</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="sig">rootscope</string>
     <string name="action_settings">Settings</string>
-    <string name="button_tweet">Tweet</string>
-    <string name="button_clear">Clear</string>
-    <string name="button_smiley">:)</string>
-    <string name="hint_status">What\'s up?</string>
-    <string name="landscape_message">landscape mode fragment</string>
-    <string name="portrait_message">portrait mode fragment</string>
+    <string name="status_button_tweet">Tweet</string>
+    <string name="status_button_clear">Clear</string>
+    <string name="status_button_smiley">( ͡° ͜ʖ ͡°)</string>
+    <string name="status_text_hint">What\'s up?</string>
     <string name="status_count">140</string>
     <string name="status_update">Status Update</string>
     <string name="username">Username</string>
     <string name="username_summary">Who are you?</string>
     <string name="password">Password</string>
     <string name="password_summary">Choose wisely!</string>
-    <string name="title_activity_main">Yamba4</string>
+    <string name="title_activity_main">Yamba3</string>
     <string name="tweet">Tweet</string>
     <string name="refresh">Refresh</string>
     <string name="purge">Purge</string>
