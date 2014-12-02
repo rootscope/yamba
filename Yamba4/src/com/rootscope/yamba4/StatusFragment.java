@@ -52,10 +52,25 @@ public class StatusFragment extends Fragment {
 				String status = textStatus.getText().toString();
 				PostTask postTask = new PostTask();
 				postTask.execute(status);
-				Log.d(TAG, "onClicked");
+				Log.d(TAG, "onClicked with status: " + status);
 			}
 		});
-		//buttonClear.setOnClickListener(this);
+
+		buttonClear.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				textStatus.setText("");
+			}
+		});
+		
+		/*
+		OnClickListener clear = new OnClickListener() {
+		    public void onClick(View v) {
+		        textStatus.setText("");
+		    }
+		};
+		buttonClear.setOnClickListener(clear);
+		*/
+
 		//buttonSmiley.setOnClickListener(this);
 		
 		textStatus.addTextChangedListener(new TextWatcher() {
@@ -104,8 +119,8 @@ public class StatusFragment extends Fragment {
 		protected String doInBackground(String... params) {
 			try {
 				SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-				String username = prefs.getString("username", "");
-				String password = prefs.getString("password", "");
+				String username = prefs.getString("username", "username");
+				String password = prefs.getString("password", "password");
 				
 				if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
 					getActivity().startActivity(new Intent(getActivity(), SettingsActivity.class));
