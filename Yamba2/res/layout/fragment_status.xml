@@ -11,10 +11,10 @@
     tools:context="com.marakana.yamba.StatusActivity" >
 
     <EditText
-        android:id="@+id/editStatus"
+        android:id="@+id/status_text"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_above="@+id/buttonTweet"
+        android:layout_above="@+id/status_button_tweet"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -47,7 +47,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/textCount"
+        android:id="@+id/status_text_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -58,17 +58,17 @@
         android:textColor="#00ff00" />
 
     <Button
-        android:id="@+id/buttonTweet"
+        android:id="@+id/status_button_tweet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:text="@string/btnTweet"
+        android:text="@string/status_button_tweet"
         android:textColor="#ffffff" />
 
     <Button
-        android:id="@+id/buttonClear"
+        android:id="@+id/status_button_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView2"
@@ -78,12 +78,12 @@
         android:textColor="#ffffff" />
 
     <Button
-        android:id="@+id/buttonSmiley"
+        android:id="@+id/status_button_smiley"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView2"
-        android:layout_toRightOf="@+id/buttonClear"
-        android:layout_toEndOf="@+id/buttonClear"
+        android:layout_toRightOf="@+id/status_button_clear"
+        android:layout_toEndOf="@+id/status_button_clear"
         android:text="@string/status_button_smiley"
         android:textColor="#ffffff" />
 

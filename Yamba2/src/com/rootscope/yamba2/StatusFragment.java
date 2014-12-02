@@ -21,51 +21,84 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rootscope.yamba2.R;
-
 import com.marakana.android.yamba.clientlib.YambaClient;
+import com.marakana.android.yamba.clientlib.YambaClientException;
 
 public class StatusFragment extends Fragment {
+
 	private static final String TAG = StatusFragment.class.getSimpleName();
-	private Button mButtonTweet;
-	private EditText mTextStatus;
-	private TextView mTextCount;
-	private int mDefaultColor;
+
+	private Button buttonTweet;
+	private Button buttonClear;
+	private Button buttonSmiley;
+	private EditText textStatus;
+	private TextView textCount;
+	private int defaultColor;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_status, null, false);
 
-		//mButtonTweet = (Button) v.findViewById(R.id.btnTweet);
-		//mTextStatus = (EditText) v.findViewById(R.id.status_text);
-		//mTextCount = (TextView) v.findViewById(R.id.status_text_count);
-		//mTextCount.setText(Integer.toString(140));
-		/*
-		mDefaultColor = mTextCount.getTextColors().getDefaultColor();
+		buttonTweet = (Button) v.findViewById(R.id.status_button_tweet);
+		buttonClear = (Button) v.findViewById(R.id.status_button_clear);
+		buttonSmiley = (Button) v.findViewById(R.id.status_button_smiley);
+		textStatus = (EditText) v.findViewById(R.id.status_text);
+		textCount = (TextView) v.findViewById(R.id.status_text_count);
+		textCount.setText(Integer.toString(140));
 
-		mButtonTweet.setOnClickListener(new OnClickListener() {
+		defaultColor = textCount.getTextColors().getDefaultColor();
+
+		buttonTweet.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				String status = mTextStatus.getText().toString();
+				String status = textStatus.getText().toString();
+				Log.e("WTF",status);
 				PostTask postTask = new PostTask();
+				Log.e("WTF", "new PostTask()");
 				postTask.execute(status);
 				Log.d(TAG, "onClicked");
 			}
 
 		});
+		
+		buttonClear.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+		        textStatus.setText("");
+		    }	
+		});
+		
+		buttonSmiley.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String status = textStatus.getText().toString();
+				if (status.length() + 2 > 140) {
+					Log.e("WTF", "No room to smile in here.");
+				}
+				else {
+					textStatus.setText(status + ":)");
+					textStatus.setSelection(status.length() + 2);
+				}
+		    }	
+		});
 
-		mTextStatus.addTextChangedListener(new TextWatcher() {
+		textStatus.addTextChangedListener(new TextWatcher() {
 
 			@Override
 			public void afterTextChanged(Editable s) {
 				int count = 140 - s.length();
-				mTextCount.setText(Integer.toString(count));
-
-				if (count < 50) {
-					mTextCount.setTextColor(Color.RED);
-				} else {
-					mTextCount.setTextColor(mDefaultColor);
+				textCount.setText(Integer.toString(count));
+				
+				if (count <= 70 && count > 35) {
+					textCount.setTextColor(Color.YELLOW);
+				}
+				else if (count <= 35) {
+					textCount.setTextColor(Color.RED);
+				}
+				else {
+					textCount.setTextColor(Color.GREEN);
 				}
 			}
 
@@ -80,7 +113,6 @@ public class StatusFragment extends Fragment {
 			}
 
 		});
-		*/
 
 		Log.d(TAG, "onCreated");
 
@@ -92,6 +124,7 @@ public class StatusFragment extends Fragment {
 
 		@Override
 		protected void onPreExecute() {
+			Log.e("WTF", getActivity().toString());
 			progress = ProgressDialog.show(getActivity(), "Posting",
 					"Please wait...");
 			progress.setCancelable(true);
@@ -100,18 +133,21 @@ public class StatusFragment extends Fragment {
 		// Executes on a non-UI thread
 		@Override
 		protected String doInBackground(String... params) {
+			Log.e("WTF","starting doInBackground try loop with params = " + params.toString());
 			try {
 				SharedPreferences prefs = PreferenceManager
 						.getDefaultSharedPreferences(getActivity());
-				String username = prefs.getString("username", "");
-				String password = prefs.getString("password", "");
+				String username = prefs.getString("username", "student");
+				String password = prefs.getString("password", "password");
+				Log.e("WTF", "prefs = " + prefs);
 
 				YambaClient cloud = new YambaClient(username, password);
+				Log.e("WTF", "cloud = " + cloud);
 				cloud.postStatus(params[0]);
 
 				Log.d(TAG, "Successfully posted to the cloud: " + params[0]);
 				return "Successfully posted";
-			} catch (Exception e) {
+			} catch (YambaClientException e) {
 				Log.e(TAG, "Failed to post to the cloud", e);
 				e.printStackTrace();
 				return "Failed to post";
