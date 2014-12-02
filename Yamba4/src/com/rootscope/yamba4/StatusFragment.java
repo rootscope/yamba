@@ -38,7 +38,6 @@ public class StatusFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.activity_status, null, false);
-		System.out.println("did we inflate?");
 		
 		textStatus = (EditText) v.findViewById(R.id.editStatus);
 		textCount = (TextView) v.findViewById(R.id.textCount);
