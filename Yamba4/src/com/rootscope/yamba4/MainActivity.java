@@ -5,6 +5,7 @@ import com.rootscope.yamba4.R;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -31,6 +32,10 @@ public class MainActivity extends ActionBarActivity {
 			return true;
 		case R.id.action_tweet:
 			startActivity(new Intent(this, StatusActivity.class));
+			return true;
+		case R.id.action_refresh:
+			Log.e("WTF", "startig service...");
+			startService(new Intent(this, RefreshService.class));
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

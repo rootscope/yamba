@@ -16,7 +16,7 @@
     <string name="username_summary">Who are you?</string>
     <string name="password">Password</string>
     <string name="password_summary">Choose wisely!</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Yamba4</string>
     <string name="tweet">Tweet</string>
     <string name="refresh">Refresh</string>
     <string name="purge">Purge</string>
