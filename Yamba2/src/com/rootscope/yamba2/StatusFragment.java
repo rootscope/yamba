@@ -33,7 +33,6 @@ public class StatusFragment extends Fragment {
 	private Button buttonSmiley;
 	private EditText textStatus;
 	private TextView textCount;
-	private int defaultColor;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,10 +46,7 @@ public class StatusFragment extends Fragment {
 		textCount = (TextView) v.findViewById(R.id.status_text_count);
 		textCount.setText(Integer.toString(140));
 
-		defaultColor = textCount.getTextColors().getDefaultColor();
-
 		buttonTweet.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				String status = textStatus.getText().toString();
