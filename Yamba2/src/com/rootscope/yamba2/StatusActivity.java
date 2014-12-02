@@ -28,7 +28,7 @@ public class StatusActivity extends Activity implements OnClickListener {
 	
 	private EditText editStatus;
 	
-	private Button buttonTweet;
+	public Button buttonTweet;
 	
 	private TextView textCount;
 
@@ -43,7 +43,6 @@ public class StatusActivity extends Activity implements OnClickListener {
 		
 		buttonTweet = (Button) findViewById(R.id.buttonTweet);
 		
-		buttonTweet.setOnClickListener(this);
 		
 		Configuration config = getResources().getConfiguration();
 		
@@ -59,6 +58,7 @@ public class StatusActivity extends Activity implements OnClickListener {
 			fragmentTransaction.replace(android.R.id.content, pm_fragment);
 		}
 		fragmentTransaction.commit();
+
 	}
 	
 	public void onClick(View v) {
