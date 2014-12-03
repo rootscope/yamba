@@ -40,6 +40,11 @@
         
         <service android:name="com.rootscope.yamba5.RefreshService" >
 		</service>
+		
+        <provider
+                android:name="com.rootscope.yamba5.StatusProvider"
+                android:authorities="com.rootscope.yamba5.StatusProvider"
+                android:exported="false" />
 
     </application>
 

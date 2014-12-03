@@ -65,18 +65,13 @@ public class RefreshService extends IntentService {
 				values.put(StatusContract.Column.CREATED_AT, status
 						.getCreatedAt().getTime());
 				
-				db.insertWithOnConflict(StatusContract.TABLE, null, values, SQLiteDatabase.CONFLICT_IGNORE);
+				//db.insertWithOnConflict(StatusContract.TABLE, null, values, SQLiteDatabase.CONFLICT_IGNORE);
 
-				/*
-				Uri uri = getContentResolver().insert(
-						StatusContract.CONTENT_URI, values);
+				Uri uri = getContentResolver().insert(StatusContract.CONTENT_URI, values);
 				if (uri != null) {
 					count++;
-					Log.d(TAG,
-							String.format("%s: %s", status.getUser(),
-									status.getMessage()));
+					Log.d(TAG, String.format("%s: %s", status.getUser(), status.getMessage()));
 				}
-				*/
 			}
 
 			/*
