@@ -1,7 +1,6 @@
 package com.rootscope.yamba4;
 
 import com.marakana.android.yamba.clientlib.YambaClient;
-import com.rootscope.yamba4.R;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
@@ -27,24 +26,23 @@ import android.widget.Toast;
 public class StatusFragment extends Fragment {
 	private static final String TAG = StatusFragment.class.getSimpleName();
 
-	private EditText textStatus;
-	
 	private Button buttonTweet;
 	private Button buttonClear;
 	private Button buttonSmiley;
-	
+	private EditText textStatus;
 	private TextView textCount;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.activity_status, null, false);
+		System.out.println("did we inflate?");
 		
-		textStatus = (EditText) v.findViewById(R.id.editStatus);
-		textCount = (TextView) v.findViewById(R.id.textCount);
-		
-		buttonTweet = (Button) v.findViewById(R.id.buttonTweet);
-		buttonClear = (Button) v.findViewById(R.id.buttonClear);
-		buttonSmiley = (Button) v.findViewById(R.id.buttonSmiley);
+		buttonTweet = (Button) v.findViewById(R.id.status_button_tweet);
+		buttonClear = (Button) v.findViewById(R.id.status_button_clear);
+		buttonSmiley = (Button) v.findViewById(R.id.status_button_smiley);
+		textStatus = (EditText) v.findViewById(R.id.status_text);
+		textCount = (TextView) v.findViewById(R.id.status_text_count);
+		textCount.setText(Integer.toString(140));
 		
 		buttonTweet.setOnClickListener(new OnClickListener() {
 			@Override
@@ -52,26 +50,30 @@ public class StatusFragment extends Fragment {
 				String status = textStatus.getText().toString();
 				PostTask postTask = new PostTask();
 				postTask.execute(status);
-				Log.d(TAG, "onClicked with status: " + status);
+				Log.d(TAG, "onClicked");
 			}
 		});
 
 		buttonClear.setOnClickListener(new OnClickListener() {
+			@Override
 			public void onClick(View v) {
-				textStatus.setText("");
-			}
+		        textStatus.setText("");
+		    }	
 		});
 		
-		/*
-		OnClickListener clear = new OnClickListener() {
-		    public void onClick(View v) {
-		        textStatus.setText("");
-		    }
-		};
-		buttonClear.setOnClickListener(clear);
-		*/
-
-		//buttonSmiley.setOnClickListener(this);
+		buttonSmiley.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String status = textStatus.getText().toString();
+				if (status.length() + 2 > 140) {
+					Log.e("WTF", "No room to smile in here.");
+				}
+				else {
+					textStatus.setText(status + ":)");
+					textStatus.setSelection(status.length() + 2);
+				}
+		    }	
+		});
 		
 		textStatus.addTextChangedListener(new TextWatcher() {
 			@Override
@@ -119,8 +121,8 @@ public class StatusFragment extends Fragment {
 		protected String doInBackground(String... params) {
 			try {
 				SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-				String username = prefs.getString("username", "username");
-				String password = prefs.getString("password", "password");
+				String username = prefs.getString("username", "");
+				String password = prefs.getString("password", "");
 				
 				if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
 					getActivity().startActivity(new Intent(getActivity(), SettingsActivity.class));
