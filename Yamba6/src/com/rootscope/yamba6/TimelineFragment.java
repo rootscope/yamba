@@ -41,12 +41,10 @@ public class TimelineFragment extends ListFragment implements LoaderCallbacks<Cu
 						.getRelativeTimeSpanString(timestamp);
 				((TextView) view).setText(relTime);
 				return true;
-			/*
 			case R.id.list_item_freshness:
 				timestamp = cursor.getLong(columnIndex);
 				((FreshnessView) view).setTimestamp(timestamp);
 				return true;
-			*/
 			default:
 				return false;
 			}
