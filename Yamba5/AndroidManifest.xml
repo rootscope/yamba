@@ -19,7 +19,7 @@
             android:name="com.rootscope.yamba5.StatusActivity"
             android:label="@string/status_update" >
             <intent-filter>
-                <action android:name="com.rootscope.yamba4.action.tweet" />
+                <action android:name="com.rootscope.yamba5.action.tweet" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
