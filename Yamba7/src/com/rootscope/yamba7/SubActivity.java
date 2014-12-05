@@ -1,4 +1,4 @@
-package com.rootscope.yamba6;
+package com.rootscope.yamba7;
 
 import android.app.Activity;
 import android.content.Intent;

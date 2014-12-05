@@ -1,4 +1,6 @@
-package com.rootscope.yamba6;
+package com.rootscope.yamba7;
+
+import com.rootscope.yamba6.R;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;

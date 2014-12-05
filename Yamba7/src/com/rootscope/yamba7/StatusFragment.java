@@ -1,6 +1,7 @@
-package com.rootscope.yamba6;
+package com.rootscope.yamba7;
 
 import com.marakana.android.yamba.clientlib.YambaClient;
+import com.rootscope.yamba6.R;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;

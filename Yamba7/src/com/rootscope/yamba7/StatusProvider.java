@@ -1,4 +1,4 @@
-package com.rootscope.yamba6;
+package com.rootscope.yamba7;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;

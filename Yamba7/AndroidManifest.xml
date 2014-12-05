@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name="com.rootscope.yamba6.MainActivity"
+            android:name="com.rootscope.yamba7.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
         </activity>
 
         <activity
-            android:name="com.rootscope.yamba6.StatusActivity"
+            android:name="com.rootscope.yamba7.StatusActivity"
             android:label="@string/status_update" >
             <intent-filter>
                 <action android:name="com.rootscope.yamba6.action.tweet" />
@@ -38,18 +38,18 @@
         </activity>
 
         <activity
-            android:name="com.rootscope.yamba6.SettingsActivity"
+            android:name="com.rootscope.yamba7.SettingsActivity"
             android:label="@string/action_settings" >
         </activity>
 
-        <activity android:name="com.rootscope.yamba6.DetailsActivity" >
+        <activity android:name="com.rootscope.yamba7.DetailsActivity" >
 		</activity>
         
-        <service android:name="com.rootscope.yamba6.RefreshService" >
+        <service android:name="com.rootscope.yamba7.RefreshService" >
 		</service>
 		
         <provider
-                android:name="com.rootscope.yamba6.StatusProvider"
+                android:name="com.rootscope.yamba7.StatusProvider"
                 android:authorities="com.rootscope.yamba6.StatusProvider"
                 android:exported="false" />
 
