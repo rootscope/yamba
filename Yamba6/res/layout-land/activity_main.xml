@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragment_timeline"
-        android:name="com.rootscope.yamba6.TimelineFragment"
+        android:name="com.rootscope.yamba7.TimelineFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
