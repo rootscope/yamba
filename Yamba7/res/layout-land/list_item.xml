@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:textColor="#FFFFFF"
         android:text="Slashdot"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -25,10 +26,10 @@
         android:layout_alignBaseline="@+id/list_item_text_user"
         android:layout_alignBottom="@+id/list_item_text_user"
         android:layout_alignParentRight="true"
+        android:textColor="#FFFFFF"
         android:text="10 minutes ago"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/secondary_text_light" />
-
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    
     <TextView
         android:id="@+id/list_item_text_message"
         android:layout_width="match_parent"
@@ -38,6 +39,7 @@
         android:autoLink="web"
         android:focusable="false"
         android:linksClickable="true"
+        android:textColor="#FFFFFF"
         android:text="give me your clothes, your boots, and your motorcycle"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
