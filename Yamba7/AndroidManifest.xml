@@ -39,6 +39,7 @@
 
         <activity
             android:name="com.rootscope.yamba7.SettingsActivity"
+            android:theme="@style/PreferencesTheme"
             android:label="@string/action_settings" >
         </activity>
 
