@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.rootscope.yamba6"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
+    
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <activity
+            android:name="com.rootscope.yamba7.MainActivity"
+            android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.rootscope.yamba7.StatusActivity"
+            android:label="@string/status_update" >
+            <intent-filter>
+                <action android:name="com.rootscope.yamba6.action.tweet" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.rootscope.yamba7.SettingsActivity"
+            android:label="@string/action_settings" >
+        </activity>
+
+        <activity android:name="com.rootscope.yamba7.DetailsActivity" >
+		</activity>
+        
+        <service android:name="com.rootscope.yamba7.RefreshService" >
+		</service>
+		
+        <provider
+                android:name="com.rootscope.yamba7.StatusProvider"
+                android:authorities="com.rootscope.yamba6.StatusProvider"
+                android:exported="false" />
+
+    </application>
+
+</manifest>

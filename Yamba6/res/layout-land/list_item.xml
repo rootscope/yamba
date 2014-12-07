@@ -41,7 +41,7 @@
         android:text="Andriod just became the #1 OS on the planet. Take that, Microsoft! http://t.co/123"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <com.rootscope.yamba6.FreshnessView
+    <com.rootscope.yamba7.FreshnessView
         android:id="@+id/list_item_freshness"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
