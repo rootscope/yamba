@@ -13,8 +13,7 @@ public class StatusActivity extends SubActivity {
 			getFragmentManager()
 				.beginTransaction()
 				.add(android.R.id.content, fragment, fragment.getClass().getSimpleName()).commit();
-			System.out.println(fragment);
 		}
-		
 	}
+
 }

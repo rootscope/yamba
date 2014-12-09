@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:textColor="#FFFFFF"
+        android:textColor="#cccccc"
         android:text="wtfff"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -23,7 +23,7 @@
         android:layout_alignBaseline="@+id/list_item_text_user"
         android:layout_alignBottom="@+id/list_item_text_user"
         android:layout_alignParentRight="true"
-        android:textColor="#FFFFFF"
+        android:textColor="#cccccc"
         android:text="10 minutes ago"
         android:textAppearance="?android:attr/textAppearanceSmall" />
         <!-- android:textColor="@android:color/secondary_text_light"-->
@@ -37,7 +37,7 @@
         android:autoLink="web"
         android:focusable="false"
         android:linksClickable="true"
-        android:textColor="#FFFFFF"
+        android:textColor="#ffffff"
         android:text="Andriod just became the #1 OS on the planet. Take that, Microsoft! http://t.co/123"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
