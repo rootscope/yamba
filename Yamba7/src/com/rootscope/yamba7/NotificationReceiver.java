@@ -36,7 +36,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 		builder.setContentIntent(operation)
 			.setContentTitle("new tweets")
 			.setContentText(count + " new tweets")
-            .setSmallIcon(android.R.drawable.sym_action_email)
+            .setSmallIcon(android.R.drawable.ic_dialog_email)
             .setAutoCancel(true);
 		
 		Notification notification = builder.build();
