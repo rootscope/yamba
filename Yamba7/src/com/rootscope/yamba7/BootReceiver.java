@@ -15,26 +15,22 @@ public class BootReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		Log.e("WTF","bootreceiver starting...");
+		Log.e("WTF","start of onReceive inside BootReceiver");
 
-		SharedPreferences prefs = PreferenceManager
-				.getDefaultSharedPreferences(context);
-		long interval = Long.parseLong(prefs.getString("interval",
-				Long.toString(DEFAULT_INTERVAL)));
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+		long interval = Long.parseLong(prefs.getString("interval", Long.toString(DEFAULT_INTERVAL)));
 
 		PendingIntent operation = PendingIntent.getService(context, -1,
-				new Intent(context, RefreshService.class),
-				PendingIntent.FLAG_UPDATE_CURRENT);
+			new Intent(context, RefreshService.class),
+			PendingIntent.FLAG_UPDATE_CURRENT);
 
-		AlarmManager alarmManager = (AlarmManager) context
-				.getSystemService(Context.ALARM_SERVICE);
+		AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
 		if (interval == 0) {
 			alarmManager.cancel(operation);
 			Log.d(TAG, "cancelling repeat operation");
 		} else {
-			alarmManager.setInexactRepeating(AlarmManager.RTC,
-					System.currentTimeMillis(), interval, operation);
+			alarmManager.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis(), interval, operation);
 			Log.d(TAG, "setting repeat operation for: " + interval);
 		}
 		Log.d(TAG, "onReceived");
