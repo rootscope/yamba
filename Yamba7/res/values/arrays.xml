@@ -2,15 +2,17 @@
 <resources>
 
 	<string-array name="interval_names">
-        <item>Fiftheen minutes</item>
-        <item>Half an hour</item>
-        <item>An hour</item>
-        <item>Half a day</item>
-        <item>A day</item>
+	    <item>Handwarmer(30s)</item>
+        <item>15m</item>
+        <item>30m</item>
+        <item>1h</item>
+        <item>12h</item>
+        <item>24h</item>
         <item>Never</item>
     </string-array>
         
     <string-array name="interval_values">
+        <item>15000</item>
         <item>900000</item>
         <item>1800000</item>
         <item>3600000</item>
