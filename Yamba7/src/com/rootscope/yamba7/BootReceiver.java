@@ -15,6 +15,7 @@ public class BootReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
+		Log.e("WTF","bootreceiver starting...");
 
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(context);
@@ -33,7 +34,7 @@ public class BootReceiver extends BroadcastReceiver {
 			Log.d(TAG, "cancelling repeat operation");
 		} else {
 			alarmManager.setInexactRepeating(AlarmManager.RTC,
-					System.currentTimeMillis(), interval, operation);
+					System.currentTimeMillis(), 15 * 1000, operation);
 			Log.d(TAG, "setting repeat operation for: " + interval);
 		}
 		Log.d(TAG, "onReceived");

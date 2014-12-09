@@ -62,6 +62,14 @@
                 <action android:name="com.rootscope.yamba7.action.UPDATED_INTERVAL" />
             </intent-filter>
         </receiver>
+        
+        <receiver
+            android:name="com.rootscope.yamba7.NotificationReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.rootscope.yamba7.action.NEW_STATUSES" />
+            </intent-filter>
+        </receiver>
 
     </application>
 
