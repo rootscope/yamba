@@ -34,7 +34,7 @@ public class BootReceiver extends BroadcastReceiver {
 			Log.d(TAG, "cancelling repeat operation");
 		} else {
 			alarmManager.setInexactRepeating(AlarmManager.RTC,
-					System.currentTimeMillis(), 15 * 1000, operation);
+					System.currentTimeMillis(), interval, operation);
 			Log.d(TAG, "setting repeat operation for: " + interval);
 		}
 		Log.d(TAG, "onReceived");

@@ -18,5 +18,7 @@
     <string name="tweet">Tweet</string>
     <string name="refresh">Refresh</string>
     <string name="purge">Purge</string>
+    <string name="interval">Refresh Interval</string>
+	<string name="interval_summary">Time between auto-refreshes</string>
 
 </resources>
