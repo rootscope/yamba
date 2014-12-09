@@ -33,7 +33,6 @@ public class RefreshService extends IntentService {
 	// Executes on a worker thread
 	@Override
 	protected void onHandleIntent(Intent intent) {
-		Log.e("WTF", "onHandleIntent() started");
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		final String username = prefs.getString("username", "");
@@ -43,16 +42,13 @@ public class RefreshService extends IntentService {
 		if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
 			Toast.makeText(this, "Please update your username and password",
 					Toast.LENGTH_LONG).show();
+			// ^ this toast is bugged - fragment it's attached to is destroyed before it can show
 			return;
 		}
 		Log.d(TAG, "onStarted");
 
-		DbHelper dbHelper = new DbHelper(this);
-		SQLiteDatabase db = dbHelper.getWritableDatabase();
 		ContentValues values = new ContentValues();
 		
-		Log.e("WTF",dbHelper + ", " + db + ", " + values);
-
 		YambaClient cloud = new YambaClient(username, password);
 		try {
 			int count = 0;
@@ -62,8 +58,7 @@ public class RefreshService extends IntentService {
 				values.put(StatusContract.Column.ID, status.getId());
 				values.put(StatusContract.Column.USER, status.getUser());
 				values.put(StatusContract.Column.MESSAGE, status.getMessage());
-				values.put(StatusContract.Column.CREATED_AT, status
-						.getCreatedAt().getTime());
+				values.put(StatusContract.Column.CREATED_AT, status.getCreatedAt().getTime());
 				
 				//db.insertWithOnConflict(StatusContract.TABLE, null, values, SQLiteDatabase.CONFLICT_IGNORE);
 
@@ -74,13 +69,10 @@ public class RefreshService extends IntentService {
 				}
 			}
 
-			/*
 			if (count > 0) {
-				sendBroadcast(new Intent(
-						"com.marakana.android.yamba.action.NEW_STATUSES").putExtra(
-						"count", count));
+				Log.e("WTF","count > 0; sendBroadcast()");
+				sendBroadcast(new Intent("com.rootscope.yamba7.action.NEW_STATUSES").putExtra("count", count));
 			}
-			*/
 
 		} catch (YambaClientException e) {
 			Log.e(TAG, "Failed to fetch the timeline", e);

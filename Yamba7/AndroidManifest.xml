@@ -53,6 +53,23 @@
                 android:name="com.rootscope.yamba7.StatusProvider"
                 android:authorities="com.rootscope.yamba6.StatusProvider"
                 android:exported="false" />
+        
+        <receiver android:name="com.rootscope.yamba7.BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.rootscope.yamba7.action.UPDATED_INTERVAL" />
+            </intent-filter>
+        </receiver>
+        
+        <receiver
+            android:name="com.rootscope.yamba7.NotificationReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.rootscope.yamba7.action.NEW_STATUSES" />
+            </intent-filter>
+        </receiver>
 
     </application>
 
