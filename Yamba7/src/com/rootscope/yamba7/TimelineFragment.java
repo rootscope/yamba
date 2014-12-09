@@ -1,7 +1,5 @@
 package com.rootscope.yamba7;
 
-import com.rootscope.yamba6.R;
-
 import android.app.ListFragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;

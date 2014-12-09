@@ -1,7 +1,5 @@
 package com.rootscope.yamba7;
 
-import com.rootscope.yamba6.R;
-
 import android.app.Fragment;
 import android.content.ContentUris;
 import android.database.Cursor;
