@@ -62,8 +62,7 @@ public class RefreshService extends IntentService {
 				values.put(StatusContract.Column.ID, status.getId());
 				values.put(StatusContract.Column.USER, status.getUser());
 				values.put(StatusContract.Column.MESSAGE, status.getMessage());
-				values.put(StatusContract.Column.CREATED_AT, status
-						.getCreatedAt().getTime());
+				values.put(StatusContract.Column.CREATED_AT, status.getCreatedAt().getTime());
 				
 				//db.insertWithOnConflict(StatusContract.TABLE, null, values, SQLiteDatabase.CONFLICT_IGNORE);
 
@@ -74,13 +73,9 @@ public class RefreshService extends IntentService {
 				}
 			}
 
-			/*
 			if (count > 0) {
-				sendBroadcast(new Intent(
-						"com.marakana.android.yamba.action.NEW_STATUSES").putExtra(
-						"count", count));
+				sendBroadcast(new Intent("com.rootscope.yamba7.action.NEW_STATUSES").putExtra("count", count));
 			}
-			*/
 
 		} catch (YambaClientException e) {
 			Log.e(TAG, "Failed to fetch the timeline", e);
