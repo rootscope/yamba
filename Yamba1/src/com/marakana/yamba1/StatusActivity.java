@@ -1,4 +1,4 @@
-package com.marakana.yamba;
+package com.marakana.yamba1;
 
 import com.marakana.android.yamba.clientlib.YambaClient;
 import com.marakana.android.yamba.clientlib.YambaClientException;
