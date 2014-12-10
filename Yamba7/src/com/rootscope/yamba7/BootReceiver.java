@@ -15,7 +15,6 @@ public class BootReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		Log.e("WTF","start of onReceive inside BootReceiver");
 
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		long interval = Long.parseLong(prefs.getString("interval", Long.toString(DEFAULT_INTERVAL)));

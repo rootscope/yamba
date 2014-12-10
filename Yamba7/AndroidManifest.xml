@@ -53,7 +53,7 @@
 		
         <provider
                 android:name="com.rootscope.yamba7.StatusProvider"
-                android:authorities="com.rootscope.yamba6.StatusProvider"
+                android:authorities="com.rootscope.yamba7.StatusProvider"
                 android:exported="false" />
         
         <receiver android:name="com.rootscope.yamba7.BootReceiver" >
